@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dana Xenia Marasca</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/d74b12e982.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="#" class="nav-branding">DANA</a>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">My Work</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="home">
+        <h2 class="main-subheading">My name is</h2>
+        <h1 class="main-heading">Dana Xenia Marasca</h1>
+        <article class="main-paragraph">
+          <p>
+            I am a full-stack development student at FooCoding. At the present
+            moment, I have gained experience of HTML, CSS and JavaScript. Based
+            in Malmö, Sweden.
+          </p>
+        </article>
+        <p class="welcome-text">Welcome to my portfolio!</p>
+        <img src="images/computer.png" class="computer-img" alt="computer" />
+      </section>
+
+      <section id="my-work">
+        <h2 class="heading my-work-heading">My Work</h2>
+        <div class="my-work-container">
+          <article class="my-work-left">
+            <p class="my-work-info">
+              Click on the dolphin to generate a random project of mine.
+            </p>
+            <button onclick="generateRepo()" class="repo-btn">
+              <img
+                src="./images/dolphin.gif"
+                alt="dolphin"
+                class="dolphin-gif"
+              />
+            </button>
+            <div id="repoGenerator"><p class="repo-btn-text"></p></div>
+          </article>
+          <article class="my-work-right">
+            <p>
+              Or follow me on
+              <a target="”_blank”" rel="noreferrer" class="account">Github</a>
+              to be updated on my latest work!
+            </p>
+            <img class="picture" />
+            <p class="name"></p>
+            <p class="location"></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="about">
+        <h2 class="heading about-heading">About Me</h2>
+        <div class="about-container">
+          <article class="about-left about-section">
+            <h3 class="experience-heading">Who am I?</h3>
+            <p>
+              Hello there! My name is Dana, I originally come from Turin, a city
+              located by the Italian Alps, although I currently reside in Malmö
+              with my boyfriend and cat. In my personal life I love drawing,
+              knitting, and reading. My favourite genres are poetry and
+              self-improvement. I like to spend time in the nature, baking and
+              cooking - Italian food is at the top of my list.
+            </p>
+            <h3 class="experience-heading">What have I been up to?</h3>
+            <p>
+              My studies were always characterized by a holistic and immersive
+              nature. As I completed my dissertation and paved my way into the
+              professional sphere, I had the opportunity to grow what I had
+              learned in theory through practice, eventually challenging myself
+              in various working environments. I took care of business
+              development operations for several companies, within tech (KPaaS),
+              e-commerce and marketing. I also have a few years of experience
+              working in hospitality, becoming a waitress during my student
+              years to support my own self, as well as within podcast editing.
+            </p>
+          </article>
+          <article class="about-right">
+            <div class="about-wrapper about-section">
+              <h3 class="experience-heading">My Work Experience</h3>
+              <ul class="about-ul"></ul>
+            </div>
+            <form class="add-experience" id="hiddenForm">
+              <p class="underline">Update work experience:</p>
+              <label for="position" class="add-experience-label"
+                >Position:</label
+              >
+              <input
+                type="text"
+                id="position"
+                name="position"
+                class="add-experience-input"
+                placeholder="Position"
+                required
+              />
+
+              <label for="company" class="add-experience-label">Company:</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                class="add-experience-input"
+                placeholder="Company"
+                required
+              />
+
+              <label for="year" class="add-experience-label">Year:</label>
+              <input
+                type="text"
+                id="year"
+                name="year"
+                class="add-experience-input"
+                placeholder="Year"
+                required
+              />
+
+              <button type="submit" class="add-experience-btn">Submit</button>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2 class="heading contact-heading">Contact Me</h2>
+        <form class="contact-form" name="contactForm" action="#">
+          <!-- add onsubmit="return validateForm()" to form tag -->
+
+          <label for="name" class="contact-label">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="contact-input"
+            placeholder="Your name goes here."
+            required
+          />
+
+          <label for="email" class="contact-label">Email:</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            class="contact-input"
+            placeholder="Your email goes here."
+            required
+          />
+
+          <label for="phone-number" class="contact-label">Phone Number:</label>
+          <input
+            type="text"
+            id="number"
+            name="number"
+            class="contact-input"
+            placeholder="Your phone number goes here."
+            required
+          />
+
+          <label for="message" class="contact-label">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            class="contact-input"
+            placeholder="Your message goes here."
+            required
+          ></textarea>
+
+          <button type="submit" class="send-btn">Send Message</button>
+        </form>
+      </section>
+    </main>
+    <script src="script.js"></script>
+    <footer>
+      <ul class="footer">
+        <li>
+          <a
+            target="”_blank”"
+            href="https://www.linkedin.com/in/dana-xenia-marasca/"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </li>
+        <li>
+          <a target="”_blank”" href="https://github.com/dxenia"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </li>
+        <li>
+          <a href="mailto:marascadanaxenia@gmail.com"
+            ><i class="fa-solid fa-envelope"></i
+          ></a>
+        </li>
+      </ul>
+      <div class="admin-box">
+        <label for="admin">Admin</label>
+        <input
+          id="admin"
+          name="admin"
+          type="checkbox"
+          onchange="hideForm()"
+          checked
+        />
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
