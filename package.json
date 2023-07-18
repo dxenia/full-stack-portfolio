@@ -1,0 +1,29 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "This is a full-stack portfolio developed as part of the curriculum of the FooCoding course, and destined to represent the author's work and experience.",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dxenia/portfolio.git"
+  },
+  "keywords": [
+    "foocoding",
+    "full-stack",
+    "portfolio",
+    "javascript",
+    "node.js"
+  ],
+  "author": "Dana Xenia Marasca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dxenia/portfolio/issues"
+  },
+  "homepage": "https://github.com/dxenia/portfolio#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
