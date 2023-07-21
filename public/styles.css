@@ -1,14 +1,51 @@
-* {
+/* FONT, HTML, BODY SETUP */
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;800&display=swap');
+
+@font-face {
+  font-family: SatoshiMedium;
+  src: url(./fonts/satoshi-medium.otf) format("truetype");
+}
+
+@font-face {
+  font-family: Kooltura;
+  src: url(./fonts/kooltura.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overwave;
+  src: url(./fonts/overwave.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Adelia;
+  src: url(./fonts/adelia.ttf) format("truetype");
+}
+
+*, *:before, *:after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #E9E8E5;
+  color: #404243;
+  font-family: 'Inconsolata', monospace;
+}
+
+/* NAVIGATION */
+
 header {
-  background-color: #262626;
+  background:#647dbb;
   position: sticky;
   top: 0;
   z-index: 9999;
+  width: 100%;
 }
 
 li {
@@ -16,8 +53,10 @@ li {
 }
 
 a {
-  color: white;
+  color: #E9E8E5;
   text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
 }
 
 .navbar {
@@ -32,19 +71,23 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 60px;
+  gap:3rem;
 }
 
-.nav-branding {
-  font-size: 2rem;
+.logo {
+  font-family: Kooltura;
+  text-transform: lowercase;
+  font-size: 2.5rem;
+  color: #E9E8E5;
 }
 
-.nav-link {
-  transition: 0.7s ease;
+.nav-link, .logo {
+  transition: 0.3s ease;
 }
 
-.nav-link:hover {
-  color: dodgerblue;
+.nav-link:hover, .logo:hover {
+  color: #6b96cf;
+  cursor: pointer;
 }
 
 .hamburger {
@@ -59,10 +102,10 @@ a {
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: white;
+  background-color: #EBE2DC;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 639px) {
   .hamburger {
     display: block;
   }
@@ -81,13 +124,16 @@ a {
 
   .nav-menu {
     position: fixed;
+    font-size: 1.5rem;
     left: -100%;
     top: 70px;
     gap: 0;
     flex-direction: column;
-    background-color: black;
+    background: #CF6BB0;
     width: 100%;
+    height: 100%;
     text-align: center;
+    justify-content: flex-start;
     transition: 0.3s;
   }
 
@@ -99,8 +145,102 @@ a {
     left: 0;
   }
 }
-/*---------------MOBILE VERSION---------------*/
+
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+  padding-top: 30%;
+  width: 70%;
+  gap: 1rem;
+}
+
+.home-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+.home-right {
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10%;
+}
+
+h1 {
+  font-family: SatoshiMedium;
+  font-size: 6rem;
+  line-height: 4.6rem;
+  /* background-image: url(images/pool-bkg.avif);
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-font-smoothing: antialiased; */
+  text-align: center;
+  /* text-transform: uppercase; */
+  letter-spacing: -0.2rem;
+}
+
+.main-subheading {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.cursive {
+  font-family: Adelia;
+  font-size: 2rem;
+}
+
+.bold {
+  font-weight:800;
+  color: #647dbb;
+}
+
+h2 { 
+  font-family: Kooltura;
+  text-transform: lowercase;
+  font-size: 4rem;
+  text-align: center;
+  padding-top: 20%; 
+  text-shadow: #B0BDDE 0 1.5rem;
+}
+
+.home-btn {
+  border: none;
+  font-family: 'Inconsolata', monospace;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: rgb(180,69,149);
+  background: linear-gradient(90deg, rgba(180,69,149,1) 0%, rgba(134,69,182,1) 50%, rgba(64,92,157,1) 100%);
+  color:#EBE2DC;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
 
 /*---------------TABLET VERSION---------------*/
-
+@media (min-width: 640px) {
+  #home {
+    padding-top: 15%;
+    width: 60%;
+  }
+  
+  .main-subheading {
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+  }
+  
+  h2 { 
+    padding-top: 10%; 
+  }
+  
+ 
+}
 /*---------------LAPTOP VERSION---------------*/
+@media (min-width: 920px) {}

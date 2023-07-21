@@ -4,7 +4,9 @@
   "description": "This is a full-stack portfolio developed as part of the curriculum of the FooCoding course, and destined to represent the author's work and experience.",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "start:dev": "node --watch src/server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
   },
   "homepage": "https://github.com/dxenia/portfolio#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mysql2": "^3.5.2"
   }
 }

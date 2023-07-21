@@ -14,19 +14,22 @@
   <body>
     <header>
       <nav class="navbar">
-        <a href="#" class="nav-branding">DANA</a>
+        <a href="#home" class="logo">dxm</a>
         <ul class="nav-menu">
           <li class="nav-item">
-            <a href="#" class="nav-link">Home</a>
+            <a href="#home" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">About Me</a>
+            <a href="#about" class="nav-link">About Me</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">My Work</a>
+            <a href="#my-work" class="nav-link">My Work</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Contact</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Log In</a>
           </li>
         </ul>
         <div class="hamburger">
@@ -37,73 +40,34 @@
       </nav>
     </header>
     <main>
-      <section id="home">
-        <h2 class="main-subheading">My name is</h2>
-        <h1 class="main-heading">Dana Xenia Marasca</h1>
-        <article class="main-paragraph">
-          <p>
-            I am a full-stack development student at FooCoding. At the present
-            moment, I have gained experience of HTML, CSS and JavaScript. Based
-            in Malmö, Sweden.
-          </p>
-        </article>
-        <p class="welcome-text">Welcome to my portfolio!</p>
-        <img src="images/computer.png" class="computer-img" alt="computer" />
-      </section>
 
-      <section id="my-work">
-        <h2 class="heading my-work-heading">My Work</h2>
-        <div class="my-work-container">
-          <article class="my-work-left">
-            <p class="my-work-info">
-              Click on the dolphin to generate a random project of mine.
-            </p>
-            <button onclick="generateRepo()" class="repo-btn">
-              <img
-                src="./images/dolphin.gif"
-                alt="dolphin"
-                class="dolphin-gif"
-              />
-            </button>
-            <div id="repoGenerator"><p class="repo-btn-text"></p></div>
-          </article>
-          <article class="my-work-right">
-            <p>
-              Or follow me on
-              <a target="”_blank”" rel="noreferrer" class="account">Github</a>
-              to be updated on my latest work!
-            </p>
-            <img class="picture" />
-            <p class="name"></p>
-            <p class="location"></p>
-          </article>
+      <section id="home">
+        <div class= "home-left">
+          <h3 class="main-subheading"><span class="cursive">Hello!</span>I am</h3>
+          <h1>Dana Xenia Marasca</h1>
+        </div>
+        <div class="home-right">
+          <h3 class="main-subheading">
+            Welcome to my portfolio. I am a <span class="bold">full-stack developer</span> with a background in sales and marketing. Currently a student at FooCoding.
+          </h3>
+          <button class="home-btn">Download CV</button>
+          <button class="home-btn">Let's chat!</button>
         </div>
       </section>
 
       <section id="about">
         <h2 class="heading about-heading">About Me</h2>
         <div class="about-container">
-          <article class="about-left about-section">
-            <h3 class="experience-heading">Who am I?</h3>
+          <article class="about-left about-section"></article>
             <p>
-              Hello there! My name is Dana, I originally come from Turin, a city
-              located by the Italian Alps, although I currently reside in Malmö
-              with my boyfriend and cat. In my personal life I love drawing,
-              knitting, and reading. My favourite genres are poetry and
-              self-improvement. I like to spend time in the nature, baking and
-              cooking - Italian food is at the top of my list.
+              Born in Italy, year 1995. I love combining creativity and coding, as I go through 
+              my own journey of discovery and growth in the tech industry. Originally a marketer,
+              I decided to turn my career around and dedicate myself to what I truly love. 
             </p>
-            <h3 class="experience-heading">What have I been up to?</h3>
+            <h3 class="experience-heading">Education & Certifications</h3>
             <p>
-              My studies were always characterized by a holistic and immersive
-              nature. As I completed my dissertation and paved my way into the
-              professional sphere, I had the opportunity to grow what I had
-              learned in theory through practice, eventually challenging myself
-              in various working environments. I took care of business
-              development operations for several companies, within tech (KPaaS),
-              e-commerce and marketing. I also have a few years of experience
-              working in hospitality, becoming a waitress during my student
-              years to support my own self, as well as within podcast editing.
+              Full Stack Developer student @ FooCoding (currently)
+              Front End Developer Certification @ Sundsgården Folkhögskola (2023)
             </p>
           </article>
           <article class="about-right">
@@ -147,6 +111,35 @@
 
               <button type="submit" class="add-experience-btn">Submit</button>
             </form>
+          </article>
+        </div>
+      </section>
+
+      <section id="my-work">
+        <h2 class="heading my-work-heading">My Work</h2>
+        <div class="my-work-container">
+          <article class="my-work-left">
+            <p class="my-work-info">
+              Click on the dolphin to generate a random project of mine.
+            </p>
+            <button onclick="generateRepo()" class="repo-btn">
+              <img
+                src="./images/dolphin.gif"
+                alt="dolphin"
+                class="dolphin-gif"
+              />
+            </button>
+            <div id="repoGenerator"><p class="repo-btn-text"></p></div>
+          </article>
+          <article class="my-work-right">
+            <p>
+              Or follow me on
+              <a target="”_blank”" rel="noreferrer" class="account">Github</a>
+              to be updated on my latest work!
+            </p>
+            <img class="picture" />
+            <p class="name"></p>
+            <p class="location"></p>
           </article>
         </div>
       </section>
