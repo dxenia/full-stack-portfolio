@@ -4,25 +4,27 @@
 
 @font-face {
   font-family: SatoshiMedium;
-  src: url(./fonts/satoshi-medium.otf) format("truetype");
+  src: url(./fonts/satoshi-medium.otf) format('truetype');
 }
 
 @font-face {
   font-family: Kooltura;
-  src: url(./fonts/kooltura.ttf) format("truetype");
+  src: url(./fonts/kooltura.ttf) format('truetype');
 }
 
 @font-face {
   font-family: Overwave;
-  src: url(./fonts/overwave.ttf) format("truetype");
+  src: url(./fonts/overwave.ttf) format('truetype');
 }
 
 @font-face {
   font-family: Adelia;
-  src: url(./fonts/adelia.ttf) format("truetype");
+  src: url(./fonts/adelia.ttf) format('truetype');
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -33,7 +35,7 @@ html {
 }
 
 body {
-  background-color: #E9E8E5;
+  background-color: #e9e8e5;
   color: #404243;
   font-family: 'Inconsolata', monospace;
 }
@@ -41,7 +43,7 @@ body {
 /* NAVIGATION */
 
 header {
-  background:#647dbb;
+  background: #647dbb;
   position: sticky;
   top: 0;
   z-index: 9999;
@@ -53,7 +55,7 @@ li {
 }
 
 a {
-  color: #E9E8E5;
+  color: #e9e8e5;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 800;
@@ -71,21 +73,23 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap:3rem;
+  gap: 3rem;
 }
 
 .logo {
   font-family: Kooltura;
   text-transform: lowercase;
   font-size: 2.5rem;
-  color: #E9E8E5;
+  color: #e9e8e5;
 }
 
-.nav-link, .logo {
+.nav-link,
+.logo {
   transition: 0.3s ease;
 }
 
-.nav-link:hover, .logo:hover {
+.nav-link:hover,
+.logo:hover {
   color: #6b96cf;
   cursor: pointer;
 }
@@ -102,7 +106,7 @@ a {
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: #EBE2DC;
+  background-color: #ebe2dc;
 }
 
 @media (max-width: 639px) {
@@ -129,7 +133,7 @@ a {
     top: 70px;
     gap: 0;
     flex-direction: column;
-    background: #CF6BB0;
+    background: #cf6bb0;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -198,17 +202,17 @@ h1 {
 }
 
 .bold {
-  font-weight:800;
+  font-weight: 800;
   color: #647dbb;
 }
 
-h2 { 
+h2 {
   font-family: Kooltura;
   text-transform: lowercase;
   font-size: 4rem;
   text-align: center;
-  padding-top: 20%; 
-  text-shadow: #B0BDDE 0 1.5rem;
+  padding-top: 20%;
+  text-shadow: #b0bdde 0 1.5rem;
 }
 
 .home-btn {
@@ -216,13 +220,46 @@ h2 {
   font-family: 'Inconsolata', monospace;
   padding: 1rem;
   margin-top: 1rem;
-  background: rgb(180,69,149);
-  background: linear-gradient(90deg, rgba(180,69,149,1) 0%, rgba(134,69,182,1) 50%, rgba(64,92,157,1) 100%);
-  color:#EBE2DC;
+  background: rgb(180, 69, 149);
+  background: linear-gradient(
+    90deg,
+    rgba(180, 69, 149, 1) 0%,
+    rgba(134, 69, 182, 1) 50%,
+    rgba(64, 92, 157, 1) 100%
+  );
+  color: #ebe2dc;
   font-weight: 800;
   font-size: 1rem;
 }
 
+/* !!!!!!!!!!  EDIT ABOVE  !!!!!!!! */
+/*+++++++++CONTACT+++++++++*/
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #b0bdde;
+  padding: 1rem;
+  margin: 3rem auto 2rem auto;
+}
+
+.contact-label,
+.contact-input {
+  width: 100%;
+  padding: 0.5rem;
+  border-style: none;
+  font-family: 'Inconsolata', monospace;
+}
+
+.send-btn {
+  width: 40%;
+  border-style: none;
+  margin: 1rem auto 1rem auto;
+  padding: 0.5rem;
+  font-family: 'Inconsolata', monospace;
+  background-color: #404243;
+  color: #ebe2dc;
+  font-weight: 800;
+}
 
 /*---------------TABLET VERSION---------------*/
 @media (min-width: 640px) {
@@ -230,17 +267,23 @@ h2 {
     padding-top: 15%;
     width: 60%;
   }
-  
+
   .main-subheading {
     margin-top: -1rem;
     margin-bottom: 2rem;
   }
-  
-  h2 { 
-    padding-top: 10%; 
+
+  h2 {
+    padding-top: 10%;
   }
-  
- 
+
+  .contact-form {
+    width: 50%;
+  }
 }
 /*---------------LAPTOP VERSION---------------*/
-@media (min-width: 920px) {}
+@media (min-width: 920px) {
+  .contact-form {
+    width: 40%;
+  }
+}

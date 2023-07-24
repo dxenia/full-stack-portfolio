@@ -40,15 +40,18 @@
       </nav>
     </header>
     <main>
-
       <section id="home">
-        <div class= "home-left">
-          <h3 class="main-subheading"><span class="cursive">Hello!</span>I am</h3>
+        <div class="home-left">
+          <h3 class="main-subheading">
+            <span class="cursive">Hello!</span>I am
+          </h3>
           <h1>Dana Xenia Marasca</h1>
         </div>
         <div class="home-right">
           <h3 class="main-subheading">
-            Welcome to my portfolio. I am a <span class="bold">full-stack developer</span> with a background in sales and marketing. Currently a student at FooCoding.
+            Welcome to my portfolio. I am a
+            <span class="bold">full-stack developer</span> with a background in
+            sales and marketing. Currently a student at FooCoding.
           </h3>
           <button class="home-btn">Download CV</button>
           <button class="home-btn">Let's chat!</button>
@@ -58,97 +61,35 @@
       <section id="about">
         <h2 class="heading about-heading">About Me</h2>
         <div class="about-container">
-          <article class="about-left about-section"></article>
+          <article class="about-left about-section">
             <p>
-              Born in Italy, year 1995. I love combining creativity and coding, as I go through 
-              my own journey of discovery and growth in the tech industry. Originally a marketer,
-              I decided to turn my career around and dedicate myself to what I truly love. 
+              Born in Italy, year 1995. I love combining creativity and coding,
+              as I go through my own journey of discovery and growth in the tech
+              industry. Originally a marketer, I decided to turn my career
+              around and dedicate myself to what I truly love.
             </p>
             <h3 class="experience-heading">Education & Certifications</h3>
             <p>
-              Full Stack Developer student @ FooCoding (currently)
-              Front End Developer Certification @ Sundsgården Folkhögskola (2023)
+              Full Stack Developer student @ FooCoding (currently) Front End
+              Developer Certification @ Sundsgården Folkhögskola (2023)
             </p>
-          </article>
-          <article class="about-right">
-            <div class="about-wrapper about-section">
-              <h3 class="experience-heading">My Work Experience</h3>
-              <ul class="about-ul"></ul>
-            </div>
-            <form class="add-experience" id="hiddenForm">
-              <p class="underline">Update work experience:</p>
-              <label for="position" class="add-experience-label"
-                >Position:</label
-              >
-              <input
-                type="text"
-                id="position"
-                name="position"
-                class="add-experience-input"
-                placeholder="Position"
-                required
-              />
-
-              <label for="company" class="add-experience-label">Company:</label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                class="add-experience-input"
-                placeholder="Company"
-                required
-              />
-
-              <label for="year" class="add-experience-label">Year:</label>
-              <input
-                type="text"
-                id="year"
-                name="year"
-                class="add-experience-input"
-                placeholder="Year"
-                required
-              />
-
-              <button type="submit" class="add-experience-btn">Submit</button>
-            </form>
           </article>
         </div>
       </section>
 
       <section id="my-work">
         <h2 class="heading my-work-heading">My Work</h2>
-        <div class="my-work-container">
-          <article class="my-work-left">
-            <p class="my-work-info">
-              Click on the dolphin to generate a random project of mine.
-            </p>
-            <button onclick="generateRepo()" class="repo-btn">
-              <img
-                src="./images/dolphin.gif"
-                alt="dolphin"
-                class="dolphin-gif"
-              />
-            </button>
-            <div id="repoGenerator"><p class="repo-btn-text"></p></div>
-          </article>
-          <article class="my-work-right">
-            <p>
-              Or follow me on
-              <a target="”_blank”" rel="noreferrer" class="account">Github</a>
-              to be updated on my latest work!
-            </p>
-            <img class="picture" />
-            <p class="name"></p>
-            <p class="location"></p>
-          </article>
-        </div>
       </section>
 
       <section id="contact">
-        <h2 class="heading contact-heading">Contact Me</h2>
-        <form class="contact-form" name="contactForm" action="#">
-          <!-- add onsubmit="return validateForm()" to form tag -->
-
+        <h2 class="contact-heading">Contact Me</h2>
+        <form
+          class="contact-form"
+          name="contactForm"
+          id="contactForm"
+          action="/"
+          method="post"
+        >
           <label for="name" class="contact-label">Name:</label>
           <input
             type="text"
@@ -169,9 +110,9 @@
             required
           />
 
-          <label for="phone-number" class="contact-label">Phone Number:</label>
+          <label for="number" class="contact-label">Phone Number:</label>
           <input
-            type="text"
+            type="number"
             id="number"
             name="number"
             class="contact-input"
@@ -188,11 +129,12 @@
             required
           ></textarea>
 
-          <button type="submit" class="send-btn">Send Message</button>
+          <button type="submit" value="Submit" class="send-btn">
+            Send Message
+          </button>
         </form>
       </section>
     </main>
-    <script src="script.js"></script>
     <footer>
       <ul class="footer">
         <li>
@@ -213,16 +155,6 @@
           ></a>
         </li>
       </ul>
-      <div class="admin-box">
-        <label for="admin">Admin</label>
-        <input
-          id="admin"
-          name="admin"
-          type="checkbox"
-          onchange="hideForm()"
-          checked
-        />
-      </div>
     </footer>
     <script src="script.js"></script>
   </body>
