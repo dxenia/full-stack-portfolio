@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Admin Section</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/d74b12e982.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body data-page="dashboard">
+    <header>
+      <nav class="admin-bar">
+        <ul class="admin-list">
+          <li class="admin-logo">dxm</li>
+          <li>
+            <a href="#personal" class="icon">
+              <i class="fa-solid fa-sliders"></i>
+              <span class="admin-item">Details</span>
+            </a>
+          </li>
+          <li>
+            <a href="#inbox">
+              <i class="fa-solid fa-inbox"></i>
+              <span class="admin-item">Inbox</span>
+            </a>
+          </li>
+          <li>
+            <a href="#career">
+              <i class="fa-solid fa-star"></i>
+              <span class="admin-item">Experience</span>
+            </a>
+          </li>
+          <li>
+            <a href="#library">
+              <i class="fa-solid fa-images"></i>
+              <span class="admin-item">Image Library</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="admin-main-heading">Admin Dashboard</h1>
+      <section id="personal" class="admin-section">
+        <h2 class="admin-heading">Personal Details</h2>
+        <div class="details">
+          <img src="./images/dana.jpg" alt="Dana" class="personal-img" />
+          <ul id="personal-container"></ul>
+        </div>
+      </section>
+
+      <section id="inbox" class="admin-section">
+        <h2 class="admin-heading">Inbox</h2>
+        <ul id="inbox-container"></ul>
+      </section>
+
+      <section id="library" class="admin-section">
+        <h2 class="admin-heading">Image Library</h2>
+        <form id="mediaUploadForm">
+          <input
+            type="file"
+            name="media"
+            id="mediaInput"
+            accept="image/*, video/*"
+          />
+          <button type="submit">Upload</button>
+        </form>
+      </section>
+
+      <section id="career" class="admin-section">
+        <h2 class="admin-heading">Experience</h2>
+        <ul id="career-container"></ul>
+        <h3>Add new experience below.</h3>
+        <form
+          class="career-form"
+          name="career-form"
+          id="career-form"
+          action="/career"
+          method="post"
+        >
+          <label for="position" class="career-label">Position/Program:</label>
+          <input
+            type="text"
+            id="position"
+            name="position"
+            class="career-input"
+            placeholder="Position or program goes here"
+            required
+          />
+
+          <label for="company" class="career-label">Company/School:</label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            class="career-input"
+            placeholder="Company or school goes here."
+            required
+          />
+
+          <label for="year" class="career-label">Year:</label>
+          <input
+            type="number"
+            id="year"
+            name="year"
+            class="career-input"
+            placeholder="The year goes here"
+            required
+          />
+
+          <button type="submit" value="Submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
