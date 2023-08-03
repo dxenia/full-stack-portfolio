@@ -16,9 +16,11 @@ app.use(
     secret: secretKey,
     resave: false,
     saveUninitialized: true,
+    proxy: true,
     cookie: {
       secure: true,
-      // maxAge: 24 * 60 * 60 * 1000,
+      maxAge: 1000 * 60 * 60 * 48,
+      sameSite: 'none',
     },
   })
 );

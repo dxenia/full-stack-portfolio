@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const app = require('../server.js');
 const pool = require('../database.js');
 
 // Admin Career: GET, POST, DELETE, PUT
 
-app.get('/career', async (request, response) => {
+router.get('/career', async (request, response) => {
   try {
     const connection = await pool.getConnection();
     const [results] = await connection.query('SELECT * FROM experience');
@@ -18,7 +17,7 @@ app.get('/career', async (request, response) => {
   }
 });
 
-app.delete('/career/:id', async (request, response) => {
+router.delete('/career/:id', async (request, response) => {
   const { id } = request.params;
   const query = 'DELETE FROM experience WHERE experience_id = ?';
 
@@ -39,7 +38,7 @@ app.delete('/career/:id', async (request, response) => {
   }
 });
 
-app.put('/career/:id', async (request, response) => {
+router.put('/career/:id', async (request, response) => {
   const { id } = request.params;
   const { position, company, year } = request.body;
   const query =
@@ -67,7 +66,7 @@ app.put('/career/:id', async (request, response) => {
   }
 });
 
-app.post('/career', async (request, response) => {
+router.post('/career', async (request, response) => {
   const { position, company, year } = request.body;
   const query =
     'INSERT INTO experience (position, company, year) VALUES (?, ?, ?)';

@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const app = require('../server.js');
 const pool = require('../database.js');
 
 // Contact Form
 
-app.post('/inbox', async (request, response) => {
+router.post('/inbox', async (request, response) => {
   const { name, email, number, message, date } = request.body;
 
   const query =
@@ -33,7 +32,7 @@ app.post('/inbox', async (request, response) => {
 });
 
 // Admin Inbox: GET and DELETE
-app.get('/inbox', async (request, response) => {
+router.get('/inbox', async (request, response) => {
   try {
     const connection = await pool.getConnection();
     const [results] = await connection.query('SELECT * FROM message');
@@ -46,7 +45,7 @@ app.get('/inbox', async (request, response) => {
   }
 });
 
-app.delete('/inbox/:id', async (request, response) => {
+router.delete('/inbox/:id', async (request, response) => {
   const { id } = request.params;
   const query = 'DELETE FROM message WHERE message_id = ?';
 
