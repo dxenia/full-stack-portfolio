@@ -2,6 +2,7 @@ const app = require('./server.js');
 const session = require('express-session');
 const cors = require('cors');
 const crypto = require('crypto');
+app.use(cors());
 
 const generateKey = () => {
   return crypto.randomBytes(64).toString('hex');
@@ -10,7 +11,6 @@ const generateKey = () => {
 const secretKey = generateKey();
 
 app.set('trust proxy', 1);
-app.use(cors());
 app.use(
   session({
     secret: secretKey,
@@ -25,6 +25,16 @@ app.use(
     },
   })
 );
+
+const authenticateUser = (request, response, next) => {
+  if (request.session.loggedIn) {
+    next();
+  } else {
+    response
+      .status(401)
+      .json({ error: 'Access to admin dashboard not authorized.' });
+  }
+};
 
 const adminRoute = require('../src/routes/adminRoute.js');
 const careerRoute = require('../src/routes/careerRoute.js');
