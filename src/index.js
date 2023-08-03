@@ -9,13 +9,18 @@ const generateKey = () => {
 
 const secretKey = generateKey();
 
+app.set('trust proxy', 1);
 app.use(cors());
 app.use(
   session({
     secret: secretKey,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {
+      secure:
+        process.env.NODE_ENV && process.env.NODE_ENV == 'production'
+          ? true
+          : false,
       maxAge: 24 * 60 * 60 * 1000,
     },
   })
