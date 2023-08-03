@@ -17,24 +17,11 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      secure:
-        process.env.NODE_ENV && process.env.NODE_ENV == 'production'
-          ? true
-          : false,
-      maxAge: 24 * 60 * 60 * 1000,
+      secure: true,
+      // maxAge: 24 * 60 * 60 * 1000,
     },
   })
 );
-
-const authenticateUser = (request, response, next) => {
-  if (request.session.loggedIn) {
-    next();
-  } else {
-    response
-      .status(401)
-      .json({ error: 'Access to admin dashboard not authorized.' });
-  }
-};
 
 const adminRoute = require('../src/routes/adminRoute.js');
 const careerRoute = require('../src/routes/careerRoute.js');

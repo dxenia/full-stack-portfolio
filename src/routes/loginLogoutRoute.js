@@ -7,6 +7,16 @@ const session = require('express-session');
 
 // Login
 
+const authenticateUser = (request, response, next) => {
+  if (request.session.loggedIn) {
+    next();
+  } else {
+    response
+      .status(401)
+      .json({ error: 'Access to admin dashboard not authorized.' });
+  }
+};
+
 app.get('/dashboard', authenticateUser, async (request, response) => {
   response.sendFile(path.resolve(__dirname, '../../public/dashboard.html'));
 });
