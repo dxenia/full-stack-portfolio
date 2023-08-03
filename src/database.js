@@ -1,10 +1,17 @@
+const path = require('path');
+const dotenv = require('dotenv');
+
+const dotenvPath = path.resolve(__dirname, '../.env');
+
+dotenv.config({ path: dotenvPath });
+
 const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'thisisthePasswordforrootuser1995o7o9',
-  database: 'portfolio',
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
   connectionLimit: 20,
 });
 
