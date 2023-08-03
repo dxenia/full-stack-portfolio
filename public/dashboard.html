@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
     />
+    <link rel="icon" type="image/x-icon" href="/images/favicon-2.ico" />
     <script
       src="https://kit.fontawesome.com/d74b12e982.js"
       crossorigin="anonymous"
@@ -17,69 +18,67 @@
   </head>
   <body data-page="dashboard">
     <header>
-      <nav class="admin-bar">
-        <ul class="admin-list">
-          <li class="admin-logo">dxm</li>
+      <nav class="sidebar">
+        <div class="top">
+          <div class="admin__nav-logo">
+            <span>dxm</span>
+          </div>
+          <i class="fa-solid fa-arrow-right-arrow-left" id="slide-btn"></i>
+        </div>
+        <ul>
           <li>
-            <a href="#personal" class="icon">
+            <a href="#personal">
               <i class="fa-solid fa-sliders"></i>
-              <span class="admin-item">Details</span>
+              <span class="admin__nav-item">User</span>
             </a>
           </li>
           <li>
             <a href="#inbox">
               <i class="fa-solid fa-inbox"></i>
-              <span class="admin-item">Inbox</span>
+              <span class="admin__nav-item">Inbox</span>
             </a>
           </li>
           <li>
             <a href="#career">
               <i class="fa-solid fa-star"></i>
-              <span class="admin-item">Experience</span>
+              <span class="admin__nav-item">Experience</span>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#library">
               <i class="fa-solid fa-images"></i>
-              <span class="admin-item">Image Library</span>
+              <span class="admin__nav-item">Media</span>
+            </a>
+          </li> -->
+          <li>
+            <a id="logout">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span class="admin__nav-item">Logout</span>
             </a>
           </li>
         </ul>
       </nav>
     </header>
 
-    <main>
-      <h1 class="admin-main-heading">Admin Dashboard</h1>
-      <section id="personal" class="admin-section">
-        <h2 class="admin-heading">Personal Details</h2>
-        <div class="details">
-          <img src="./images/dana.jpg" alt="Dana" class="personal-img" />
-          <ul id="personal-container"></ul>
-        </div>
+    <main class="main__content">
+      <h1 class="admin__main-heading">Admin Dashboard</h1>
+      <section id="personal" class="admin__section">
+        <h2 class="admin__heading">Current user</h2>
+        <article class="details">
+          <img src="./images/dana.jpeg" alt="Dana" class="personal-img" />
+          <ul id="personal__container"></ul>
+        </article>
       </section>
 
-      <section id="inbox" class="admin-section">
-        <h2 class="admin-heading">Inbox</h2>
-        <ul id="inbox-container"></ul>
+      <section id="inbox" class="admin__section">
+        <h2 class="admin__heading">Inbox</h2>
+        <ul id="inbox__container"></ul>
       </section>
 
-      <section id="library" class="admin-section">
-        <h2 class="admin-heading">Image Library</h2>
-        <form id="mediaUploadForm">
-          <input
-            type="file"
-            name="media"
-            id="mediaInput"
-            accept="image/*, video/*"
-          />
-          <button type="submit">Upload</button>
-        </form>
-      </section>
-
-      <section id="career" class="admin-section">
-        <h2 class="admin-heading">Experience</h2>
-        <ul id="career-container"></ul>
-        <h3>Add new experience below.</h3>
+      <section id="career" class="admin__section">
+        <h2 class="admin__heading">Experience</h2>
+        <ul id="career__container"></ul>
+        <h3 class="admin__subheading">Add new experience below:</h3>
         <form
           class="career-form"
           name="career-form"
@@ -93,7 +92,7 @@
             id="position"
             name="position"
             class="career-input"
-            placeholder="Position or program goes here"
+            placeholder="Position or program goes here."
             required
           />
 
@@ -113,13 +112,23 @@
             id="year"
             name="year"
             class="career-input"
-            placeholder="The year goes here"
+            placeholder="The year goes here."
             required
           />
 
-          <button type="submit" value="Submit">Submit</button>
+          <button type="submit" value="Submit" class="admin__button">
+            Submit
+          </button>
         </form>
       </section>
+
+      <!-- <section id="library" class="admin__section">
+        <h2 class="admin__heading">Media Library</h2>
+        <input type="text" id="imageUrlInput" placeholder="Enter image URL" />
+        <button onclick="showImage()">Show Image</button>
+
+        <div id="imageContainer"></div>
+      </section> -->
     </main>
     <script src="script.js"></script>
   </body>

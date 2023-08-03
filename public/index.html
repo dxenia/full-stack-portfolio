@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
     />
+    <link rel="icon" type="image/x-icon" href="/images/favicon-1.ico" />
     <script
       src="https://kit.fontawesome.com/d74b12e982.js"
       crossorigin="anonymous"
@@ -32,7 +33,7 @@
             <a href="#skills" class="nav__link">Skills</a>
           </li>
           <li class="nav__item">
-            <a href="#projects" class="nav__link">My Work</a>
+            <a href="#projects" class="nav__link">Projects</a>
           </li>
           <li class="nav__item">
             <a href="#contact" class="nav__link">Contact</a>
@@ -124,16 +125,13 @@
               <h3 class="home__info-title">Services</h3>
               <ul class="home__info-description">
                 <li>
-                  <i class="fa-regular fa-star"></i> Full-stack web development
+                  <i class="fa-regular fa-star"></i> Full-stack Web Development
                 </li>
                 <li>
-                  <i class="fa-regular fa-star"></i> Accessible (ARIA) and
-                  Responsive Design
+                  <i class="fa-regular fa-star"></i> Accessible and Responsive
+                  Design
                 </li>
-                <li>
-                  <i class="fa-regular fa-star"></i> SEO Performance (Semantic
-                  Markup)
-                </li>
+                <li><i class="fa-regular fa-star"></i> Semantic Markup</li>
                 <li><i class="fa-regular fa-star"></i> Version Control</li>
                 <li><i class="fa-regular fa-star"></i> User Interface (UI)</li>
                 <li><i class="fa-regular fa-star"></i> Database Management</li>
@@ -145,27 +143,34 @@
 
       <!------------------------ABOUT------------------------>
       <section class="about__container section section__border" id="about">
-        <h2 class="about__title">About Me</h2>
-        <p class="about__info">
-          Born and raised in Italy, now residing in Sweden. I love combining
-          creativity and coding, as I go through my own journey of discovery and
-          growth in the tech industry. Originally a marketer, I decided to turn
-          my career around and dedicate myself to what I truly love: coding.
-        </p>
-        <button class="about__btn-cv">
-          <a
-            href="https://drive.google.com/file/d/1fCUiYpOX_CEQNoWW1HZN4dvYaqk1X1Ij/view"
-            target="_blank"
-            >View CV</a
-          >
-        </button>
-        <button class="about__btn-certificate">
-          <a
-            href="https://drive.google.com/file/d/1BVT6oKJpX56kRcCi4o8SEJkXUH5pX3vi/view"
-            target="_blank"
-            >View Certification</a
-          >
-        </button>
+        <article class="about__main">
+          <h2 class="about__title">About Me</h2>
+          <p class="about__info">
+            Born and raised in Italy, now residing in Sweden. I love combining
+            creativity and coding, as I go through my own journey of discovery
+            and growth in the tech industry. Originally a marketer, I decided to
+            turn my career around and dedicate myself to what I truly love:
+            <span class="bold">coding</span>.
+          </p>
+          <button class="about__btn-cv">
+            <a
+              href="https://drive.google.com/file/d/1fCUiYpOX_CEQNoWW1HZN4dvYaqk1X1Ij/view"
+              target="_blank"
+              >View CV</a
+            >
+          </button>
+          <button class="about__btn-certificate">
+            <a
+              href="https://drive.google.com/file/d/1BVT6oKJpX56kRcCi4o8SEJkXUH5pX3vi/view"
+              target="_blank"
+              >View Certification</a
+            >
+          </button>
+        </article>
+        <article class="about__experience">
+          <h3>Career and Education</h3>
+          <ul id="experience__container"></ul>
+        </article>
       </section>
 
       <!------------------------SKILLS------------------------>
@@ -180,114 +185,128 @@
           <div class="skills__content flex">
             <h3 class="skills__title">
               <i class="fa-solid fa-code"></i>
-              <span>Full-Stack Web Development</span>
+              <span>Web Development</span>
             </h3>
 
             <ul class="skills__info">
               <li class="skills__data">
                 <div class="skills__blob">
-                  <i class="devicon-html5-plain skills_devicon"></i>
+                  <i class="devicon-html5-plain skills__devicon"></i>
                 </div>
                 <span class="skills__name">HTML5</span>
               </li>
 
               <li class="skills__data">
                 <div class="skills__blob">
-                  <i class="devicon-css3-plain skills_devicon"></i>
+                  <i class="devicon-css3-plain skills__devicon"></i>
                 </div>
                 <span class="skills__name">CSS3</span>
               </li>
 
               <li class="skills__data">
                 <div class="skills__blob">
-                  <i class="devicon-javascript-plain skills_devicon"></i>
+                  <i class="devicon-javascript-plain skills__devicon"></i>
                 </div>
                 <span class="skills__name">JavaScript</span>
               </li>
 
               <li class="skills__data">
                 <div class="skills__blob">
-                  <i class="devicon-nodejs-plain skills_devicon"></i>
+                  <i class="devicon-nodejs-plain skills__devicon"></i>
                 </div>
                 <span class="skills__name">Node.js</span>
               </li>
 
               <li class="skills__data">
                 <div class="skills__blob">
-                  <i class="devicon-react-original skills_devicon"></i>
+                  <i class="devicon-react-original skills__devicon"></i>
                 </div>
                 <span class="skills__name">React</span>
               </li>
 
               <li class="skills__data">
                 <div class="skills__blob">
-                  <i class="devicon-mysql-plain skills_devicon"></i>
+                  <i class="devicon-mysql-plain-wordmark skills__devicon"></i>
                 </div>
                 <span class="skills__name">MySQL</span>
               </li>
 
               <li class="skills__data">
                 <div class="skills__blob">
-                  <i class="devicon-git-plain skills_devicon"></i>
+                  <i class="devicon-git-plain skills__devicon"></i>
                 </div>
                 <span class="skills__name">GIT</span>
               </li>
+
+              <li class="skills__data">
+                <div class="skills__blob">
+                  <i class="devicon-sass-original skills__devicon"></i>
+                </div>
+                <span class="skills__name">Sass</span>
+              </li>
+
+              <li class="skills__data">
+                <div class="skills__blob">
+                  <i class="devicon-bootstrap-plain skills__devicon"></i>
+                </div>
+                <span class="skills__name">Bootstrap</span>
+              </li>
             </ul>
+          </div>
 
-            <div class="skills__content">
-              <h3 class="skills__title">
-                <i class="fa-solid fa-cubes"></i>Soft Skills
-              </h3>
+          <div class="skills__content flex">
+            <h3 class="skills__title">
+              <i class="fa-solid fa-cubes"></i>Soft Skills
+            </h3>
 
-              <ul class="skills__info">
-                <li class="skills__data">
-                  <div class="skills__blob">
-                    <i class="fa-solid fa-gears skills__icon"></i>
-                  </div>
-                  <span class="skills__name">Problem solving</span>
-                </li>
+            <ul class="skills__info">
+              <li class="skills__data">
+                <div class="skills__blob">
+                  <i class="fa-solid fa-gears skills__icon"></i>
+                </div>
+                <span class="skills__name">Problem solving</span>
+              </li>
 
-                <li class="skills__data">
-                  <div class="skills__blob">
-                    <i class="fa-solid fa-hourglass-half skills__icon"></i>
-                  </div>
-                  <span class="skills__name">Time management</span>
-                </li>
+              <li class="skills__data">
+                <div class="skills__blob">
+                  <i class="fa-solid fa-hourglass-half skills__icon"></i>
+                </div>
+                <span class="skills__name">Time management</span>
+              </li>
 
-                <li class="skills__data">
-                  <div class="skills__blob">
-                    <i class="fa-regular fa-paper-plane skills__icon"></i>
-                  </div>
-                  <span class="skills__name">Flexibility</span>
-                </li>
+              <li class="skills__data">
+                <div class="skills__blob">
+                  <i class="fa-regular fa-paper-plane skills__icon"></i>
+                </div>
+                <span class="skills__name">Flexibility</span>
+              </li>
 
-                <li class="skills__data">
-                  <div class="skills__blob">
-                    <i class="fa-solid fa-hand-holding-heart skills__icon"></i>
-                  </div>
-                  <span class="skills__name">Customer focus</span>
-                </li>
+              <li class="skills__data">
+                <div class="skills__blob">
+                  <i class="fa-solid fa-hand-holding-heart skills__icon"></i>
+                </div>
+                <span class="skills__name">Customer focus</span>
+              </li>
 
-                <li class="skills__data">
-                  <div class="skills__blob">
-                    <i class="fa-regular fa-comments skills__icon"></i>
-                  </div>
-                  <span class="skills__name">Communication</span>
-                </li>
-              </ul>
-            </div>
+              <li class="skills__data">
+                <div class="skills__blob">
+                  <i class="fa-regular fa-comments skills__icon"></i>
+                </div>
+                <span class="skills__name">Communication</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
       <!------------------------PROJECTS------------------------>
 
-      <section class="projects section" id="projects">
-        <h2 class="section__title">My work</h2>
+      <section class="projects section container section__border" id="projects">
+        <h2 class="section__title">Projects</h2>
         <span class="section__subtitle"
-          >Swipe through some of my recent work</span
+          >Take a peek into some of my recent work.</span
         >
-        <ul class="projects__container container section__border">
+        <ul class="projects__container">
           <li class="projects__content">
             <img
               src="./images/project-1.png"
@@ -295,7 +314,10 @@
               class="projects__img"
             />
             <div>
-              <span class="projects__subtitle"></span>
+              <span class="projects__subtitle"
+                >Neon-toned portfolio developed with HTML, CSS and JavaScript as
+                part of FooCoding's curriculum.
+              </span>
               <h3 class="projects__title">Creative Portfolio Project</h3>
               <a
                 href="https://dxenia.github.io/FooCoding/Portfolio/"
@@ -314,7 +336,11 @@
               class="projects__img"
             />
             <div>
-              <span class="projects__subtitle"></span>
+              <span class="projects__subtitle"
+                >Front-end project that focuses on recreating the
+                <a href="https://thenextweb.com/" target="_blank">TNW</a>
+                website with HTML and CSS only.
+              </span>
               <h3 class="projects__title">TNW Website Copy Project</h3>
               <a
                 href="https://dxenia.github.io/FooCoding/HTML-CSS/Week3/"
@@ -332,7 +358,10 @@
               class="projects__img"
             />
             <div>
-              <span class="projects__subtitle"></span>
+              <span class="projects__subtitle"
+                >Dynamically generated bookshelf through DOM manipulation in
+                JavaScript.
+              </span>
               <h3 class="projects__title">Bookshelf Project</h3>
               <a
                 href="https://dxenia.github.io/FooCoding/JavaScript2/Week1/"
@@ -350,7 +379,10 @@
               class="projects__img"
             />
             <div>
-              <span class="projects__subtitle"></span>
+              <span class="projects__subtitle"
+                >Simple expense tracker app created using JavaScript only, which
+                allows a series of different operations.
+              </span>
               <h3 class="projects__title">Expense Tracker Project</h3>
               <a
                 href="https://dxenia-expense-tracker.netlify.app/"
@@ -368,7 +400,9 @@
               class="projects__img"
             />
             <div>
-              <span class="projects__subtitle"></span>
+              <span class="projects__subtitle"
+                >Birthday card which implements several CSS animations.</span
+              >
               <h3 class="projects__title">Birthday Invitation Project</h3>
               <a
                 href="https://dxenia-birthday-invitation.netlify.app/"
@@ -386,7 +420,10 @@
               class="projects__img"
             />
             <div>
-              <span class="projects__subtitle"></span>
+              <span class="projects__subtitle"
+                >Back-end command line app created using Node.js and MySQL (repo
+                code only).
+              </span>
               <h3 class="projects__title">Geography Questions CLI Project</h3>
               <a
                 href="https://github.com/dxenia/FooCoding/tree/main/Databases/Week2/Task1"
@@ -400,10 +437,24 @@
       </section>
 
       <!------------------------CONTACT------------------------>
-      <section class="contact section" id="contact">
+      <section class="contact section section__border" id="contact">
         <h2 class="section__title">Contact Me</h2>
         <span class="section__subtitle">Get in touch!</span>
-        <div class="contact__container container grid section__border">
+        <div class="contact__container container grid">
+          <ul class="contact__others">
+            <li>
+              <span class="highlight"
+                >Open for work, collaborations and learning opportunities.</span
+              >
+            </li>
+            <li class="margin flex">
+              <span>Always available through phone:</span>
+              <span>+46 73 464 39 10.</span>
+            </li>
+            <li>
+              <span> Currently located in Malmö, Sweden.</span>
+            </li>
+          </ul>
           <form
             class="contact__form grid"
             name="contact-form"
@@ -449,7 +500,7 @@
               name="message"
               class="contact__form-input"
               placeholder="Your message goes here."
-              cols="30"
+              cols="20"
               rows="10"
               required
             ></textarea>
@@ -522,7 +573,7 @@
             id="username"
             name="username"
             class="login__form-input"
-            placeholder="Your username goes here."
+            placeholder="Insert username."
             required
           />
 
@@ -532,7 +583,7 @@
             id="password"
             name="password"
             class="login__form-input"
-            placeholder="Your password goes here."
+            placeholder="Insert password."
             required
           />
 

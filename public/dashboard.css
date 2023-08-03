@@ -1,0 +1,104 @@
+/*----------------------ADMIN----------------------*/
+
+/* 
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 250px;
+  background: black;
+}
+
+.sidebar .image-text {
+  width: 40px;
+} */
+
+#admin-page {
+  position: relative;
+  margin-left: 10%;
+}
+
+.admin-main-heading {
+  text-align: right;
+  padding: 2rem;
+  font-size: 2rem;
+  background: #404243;
+  color: #e9e8e5;
+  font-family: var(--highlight-font);
+}
+
+.admin-heading {
+  text-align: left;
+  font-family: var(--highlight-font);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-subheading {
+  font-family: var(--highlight-font);
+  font-size: 2.5rem;
+}
+
+#personal,
+#inbox,
+#career,
+#library {
+  margin-left: 15%;
+  font-family: var(--body-font);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#inbox-container,
+#career-container {
+  display: grid;
+  width: 90%;
+  border-collapse: collapse;
+}
+
+#inbox-container > li,
+#career-container > li {
+  display: grid;
+}
+
+#inbox-container > li:first-child,
+#career-container > li:first-child {
+  display: none;
+}
+
+#inbox-container > li > span,
+#career-container > li > span {
+  display: flex;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+#inbox-container a {
+  color: #404243;
+  text-transform: lowercase;
+  text-decoration: underline;
+}
+
+.inbox-heading,
+.career-heading {
+  font-weight: 800;
+  background: #404243;
+  color: #e9e8e5;
+}
+
+.personal-img {
+  width: 10rem;
+  border-radius: 90%;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+#career-container {
+  width: 50%;
+}

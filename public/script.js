@@ -1,6 +1,6 @@
 // data-page: https://www.dofactory.com/html/body/data reduces the need for requests to the server.
 
-// index.html
+//~~~~~~~~~~~~~~~~~~~~~~index.html~~~~~~~~~~~~~~~~~~~~~~
 if (document.body.dataset.page === 'index') {
   // Navigation
   function generateNav() {
@@ -20,6 +20,39 @@ if (document.body.dataset.page === 'index') {
     );
   }
 
+  // Experience container
+
+  const career = document.getElementById('experience__container');
+  const careerHeading = document.createElement('li');
+  careerHeading.className = 'career-heading';
+  careerHeading.innerHTML =
+    '<span>Position/Course @ Company/School (Year)</span>';
+  career.appendChild(careerHeading);
+
+  fetch('http://localhost:3000/career')
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((item) => {
+        const li = document.createElement('li');
+        career.appendChild(li);
+
+        const position = document.createElement('span');
+        position.innerText = item.position;
+        li.appendChild(position);
+
+        const company = document.createElement('span');
+        company.innerHTML = ` @ ${item.company}`;
+        li.appendChild(company);
+
+        const year = document.createElement('span');
+        year.innerHTML = ` (${item.year})`;
+        li.appendChild(year);
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
   // Contact form
 
   function sendMessage() {
@@ -34,7 +67,7 @@ if (document.body.dataset.page === 'index') {
         data[key] = value;
       });
 
-      fetch('http://localhost:3000/submit', {
+      fetch('http://localhost:3000/inbox', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -106,11 +139,19 @@ if (document.body.dataset.page === 'index') {
   logIn();
 }
 
-// dashboard.html
+//~~~~~~~~~~~~~~~~~~~~~~dashboard.html~~~~~~~~~~~~~~~~~~~~~~
 
 if (document.body.dataset.page === 'dashboard') {
+  // Admin Sidebar
+  let btn = document.querySelector('#slide-btn');
+  let sidebar = document.querySelector('.sidebar');
+
+  btn.onclick = function () {
+    sidebar.classList.toggle('active');
+  };
+
   // Admin details
-  const detailsBox = document.getElementById('personal-container');
+  const detailsBox = document.getElementById('personal__container');
 
   fetch('http://localhost:3000/admin')
     .then((response) => response.json())
@@ -139,12 +180,7 @@ if (document.body.dataset.page === 'dashboard') {
 
   // Admin Inbox
 
-  const inbox = document.getElementById('inbox-container');
-  const inboxHeading = document.createElement('li');
-  inboxHeading.className = 'inbox-heading';
-  inboxHeading.innerHTML =
-    '<span>Reference</span><span>Name</span><span>Email</span><span>Phone Number</span><span>Message</span><span>Date</span>';
-  inbox.appendChild(inboxHeading);
+  const inbox = document.getElementById('inbox__container');
 
   fetch('http://localhost:3000/inbox')
     .then((response) => response.json())
@@ -154,30 +190,26 @@ if (document.body.dataset.page === 'dashboard') {
         const li = document.createElement('li');
         inbox.appendChild(li);
 
-        const id = document.createElement('span');
-        id.innerText = item.message_id;
-        id.className = 'id';
-        li.appendChild(id);
-
         const name = document.createElement('span');
-        name.innerText = item.name;
+        name.innerHTML = `Sent by: ${item.name}`;
         li.appendChild(name);
 
         const email = document.createElement('span');
-        email.innerHTML = `<a href="mailto:${item.email}">${item.email}</a>`;
+        email.innerHTML = `(<a href="mailto:${item.email}"> ${item.email}</a>)`;
         li.appendChild(email);
 
         const number = document.createElement('span');
-        number.innerText = item.number;
+        number.innerHTML = `Phone: 0${item.number}`;
         li.appendChild(number);
 
         const content = document.createElement('span');
         content.innerText = item.content;
+        content.className = 'inbox__content';
         li.appendChild(content);
 
         const date = document.createElement('span');
         const jsDate = new Date(item.date).toLocaleString();
-        date.innerText = jsDate;
+        date.innerHTML = `Sent: ${jsDate}`;
         li.appendChild(date);
 
         const deleteButton = document.createElement('button');
@@ -193,31 +225,6 @@ if (document.body.dataset.page === 'dashboard') {
       console.error(error);
     });
 
-  // Admin Media Library
-
-  const mediaUploadForm = document.getElementById('mediaUploadForm');
-
-  mediaUploadForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(mediaUploadForm);
-    try {
-      const response = await fetch('http://localhost:3000/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        alert('Media uploaded successfully!');
-      } else {
-        alert('Failed to upload media.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to upload media.');
-    }
-  });
-
   // Admin Career
 
   function generateEditButton(id) {
@@ -230,12 +237,7 @@ if (document.body.dataset.page === 'dashboard') {
     return editButton;
   }
 
-  const career = document.getElementById('career-container');
-  const careerHeading = document.createElement('li');
-  careerHeading.className = 'career-heading';
-  careerHeading.innerHTML =
-    '<span>Position/Course</span><span>Company/School</span><span>Year</span>';
-  career.appendChild(careerHeading);
+  const career = document.getElementById('career__container');
 
   fetch('http://localhost:3000/career')
     .then((response) => response.json())
@@ -249,12 +251,16 @@ if (document.body.dataset.page === 'dashboard') {
         li.appendChild(position);
 
         const company = document.createElement('span');
-        company.innerText = item.company;
+        company.innerHTML = ` @ ${item.company} `;
         li.appendChild(company);
 
         const year = document.createElement('span');
-        year.innerText = item.year;
+        year.innerText = ` (${item.year})`;
         li.appendChild(year);
+
+        const buttonDiv = document.createElement('div');
+        buttonDiv.className = 'button__div';
+        li.appendChild(buttonDiv);
 
         const deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete';
@@ -262,7 +268,7 @@ if (document.body.dataset.page === 'dashboard') {
         deleteButton.addEventListener('click', () => {
           handleDelete('/career', item.experience_id, li);
         });
-        li.appendChild(deleteButton);
+        buttonDiv.appendChild(deleteButton);
 
         const editButton = document.createElement('button');
         editButton.innerText = 'Edit';
@@ -270,9 +276,9 @@ if (document.body.dataset.page === 'dashboard') {
         editButton.addEventListener('click', (event) => {
           event.preventDefault();
 
-          const newPosition = prompt('Enter the new position:');
-          const newCompany = prompt('Enter the new company:');
-          const newYear = prompt('Enter the new year:');
+          const newPosition = prompt('Enter the updated position:');
+          const newCompany = prompt('Enter the updated company:');
+          const newYear = prompt('Enter the updated year:');
 
           if (newPosition && newCompany && newYear) {
             const newData = {
@@ -286,7 +292,7 @@ if (document.body.dataset.page === 'dashboard') {
             alert('Please enter all three values for the item.');
           }
         });
-        li.appendChild(editButton);
+        buttonDiv.appendChild(editButton);
       });
     });
 
@@ -317,11 +323,11 @@ if (document.body.dataset.page === 'dashboard') {
       })
       .then((data) => {
         console.log(data);
-        alert('Your message was submitted successfully!');
+        alert('New item has been successfully created!');
       })
       .catch((error) => {
         console.error(error);
-        alert('Error while submitting message.');
+        alert('Error while creating new item.');
       });
     careerForm.reset();
   });
@@ -363,4 +369,20 @@ if (document.body.dataset.page === 'dashboard') {
         alert('Error');
       });
   }
+
+  // Logout
+  const logout = () => {
+    fetch('/logout', {
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        window.location.href = '/';
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  document.getElementById('logout').addEventListener('click', logout);
 }
