@@ -29,7 +29,7 @@ if (document.body.dataset.page === 'index') {
     '<span>Position/Course @ Company/School (Year)</span>';
   career.appendChild(careerHeading);
 
-  fetch('http://localhost:3000/career')
+  fetch('/career')
     .then((response) => response.json())
     .then((data) => {
       data.forEach((item) => {
@@ -67,7 +67,7 @@ if (document.body.dataset.page === 'index') {
         data[key] = value;
       });
 
-      fetch('http://localhost:3000/inbox', {
+      fetch('/inbox', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ if (document.body.dataset.page === 'index') {
         password: formData.get('password'),
       };
 
-      fetch('http://localhost:3000/login', {
+      fetch('/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -153,7 +153,7 @@ if (document.body.dataset.page === 'dashboard') {
   // Admin details
   const detailsBox = document.getElementById('personal__container');
 
-  fetch('http://localhost:3000/admin')
+  fetch('/admin')
     .then((response) => response.json())
     .then((data) => {
       data.forEach((item) => {
@@ -182,7 +182,7 @@ if (document.body.dataset.page === 'dashboard') {
 
   const inbox = document.getElementById('inbox__container');
 
-  fetch('http://localhost:3000/inbox')
+  fetch('/inbox')
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -239,7 +239,7 @@ if (document.body.dataset.page === 'dashboard') {
 
   const career = document.getElementById('career__container');
 
-  fetch('http://localhost:3000/career')
+  fetch('/career')
     .then((response) => response.json())
     .then((data) => {
       data.forEach((item) => {
@@ -307,7 +307,7 @@ if (document.body.dataset.page === 'dashboard') {
       data[key] = value;
     });
 
-    fetch('http://localhost:3000/career', {
+    fetch('/career', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -335,7 +335,7 @@ if (document.body.dataset.page === 'dashboard') {
   // Handle CRUD functions
 
   function handleDelete(path, id, removedItem) {
-    fetch(`http://localhost:3000${path}/${id}`, {
+    fetch(`${path}/${id}`, {
       method: 'DELETE',
     })
       .then((response) => {
@@ -351,7 +351,7 @@ if (document.body.dataset.page === 'dashboard') {
   }
 
   function handleEdit(path, id, updatedItem) {
-    fetch(`http://localhost:3000${path}/${id}`, {
+    fetch(`${path}/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
