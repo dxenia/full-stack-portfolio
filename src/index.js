@@ -9,11 +9,12 @@ const generateKey = () => {
 };
 
 const secretKey = generateKey();
+// console.log(secretKey);
 
 app.set('trust proxy', 1);
 app.use(
   session({
-    secret: secretKey,
+    secret: process.env.SECRET_KEY || secretKey,
     resave: false,
     saveUninitialized: true,
     proxy: true,
