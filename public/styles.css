@@ -19,7 +19,7 @@
   --dark-color: #1c1c1c;
   --highlight-color: #fface5;
   --highlight-color-soft: #ffe6f7;
-  --complementary-color: #acffc6;
+  --complementary-color: #a3edbb;
 
   /* Font family */
   --body-font: 'Work Sans', sans-serif;
@@ -34,7 +34,7 @@
   --h3-font-size: 1.5rem;
   --nav-font-size: 1.6rem;
   --btn-font-size: 1.5rem;
-  --normal-font-size: 1.2rem;
+  --normal-font-size: 1.1rem;
   --small-font-size: 1.1rem;
   --tiny-font-size: 0.6rem;
   --admin-font-size: 0.8rem;
@@ -52,7 +52,7 @@
     --h3-font-size: 2rem;
     --nav-font-size: 0.8rem;
     --btn-font-size: 1.6rem;
-    --normal-font-size: 1.6rem;
+    --normal-font-size: 1.3rem;
     --small-font-size: 1.1rem;
     --tiny-font-size: 0.625rem;
     --admin-font-size: 1.1rem;
@@ -237,7 +237,7 @@ button:hover {
   background: rgb(172, 255, 198);
   background: linear-gradient(
     270deg,
-    rgba(172, 255, 198, 1) 0%,
+    rgba(163, 237, 187, 1) 0%,
     rgba(241, 238, 239, 1) 60%
   );
 }
