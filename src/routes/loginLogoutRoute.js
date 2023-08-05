@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../database.js');
-const app = require('../server.js');
 const path = require('path');
+const session = require('express-session');
 
 // Login
 
@@ -16,11 +16,11 @@ const authenticateUser = (request, response, next) => {
   }
 };
 
-app.get('/dashboard', authenticateUser, async (request, response) => {
+router.get('/dashboard', authenticateUser, async (request, response) => {
   response.sendFile(path.resolve(__dirname, '../../public/dashboard.html'));
 });
 
-app.post('/login', async (request, response) => {
+router.post('/login', async (request, response) => {
   const { username, password } = request.body;
 
   const query = 'SELECT * FROM admin WHERE username = ? AND password = ?';
@@ -58,7 +58,7 @@ app.post('/login', async (request, response) => {
 
 // Logout
 
-app.post('/logout', async (request, response) => {
+router.post('/logout', async (request, response) => {
   request.session.loggedIn = false;
   response
     .status(200)

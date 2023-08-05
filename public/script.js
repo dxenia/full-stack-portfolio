@@ -29,7 +29,7 @@ if (document.body.dataset.page === 'index') {
     '<span>Position/Course @ Company/School (Year)</span>';
   career.appendChild(careerHeading);
 
-  fetch('http://localhost:3000/career')
+  fetch('/career')
     .then((response) => response.json())
     .then((data) => {
       data.forEach((item) => {
@@ -67,7 +67,7 @@ if (document.body.dataset.page === 'index') {
         data[key] = value;
       });
 
-      fetch('http://localhost:3000/inbox', {
+      fetch('/inbox', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +87,9 @@ if (document.body.dataset.page === 'index') {
         })
         .catch((error) => {
           console.error(error);
-          alert('Error while submitting message.');
+          alert(
+            'Error while submitting message. Make sure all fields are properly filled in.'
+          );
         });
       form.reset();
     });
@@ -107,7 +109,7 @@ if (document.body.dataset.page === 'index') {
         password: formData.get('password'),
       };
 
-      fetch('http://localhost:3000/login', {
+      fetch('/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -153,7 +155,7 @@ if (document.body.dataset.page === 'dashboard') {
   // Admin details
   const detailsBox = document.getElementById('personal__container');
 
-  fetch('http://localhost:3000/admin')
+  fetch('/admin')
     .then((response) => response.json())
     .then((data) => {
       data.forEach((item) => {
@@ -182,7 +184,7 @@ if (document.body.dataset.page === 'dashboard') {
 
   const inbox = document.getElementById('inbox__container');
 
-  fetch('http://localhost:3000/inbox')
+  fetch('/inbox')
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -239,7 +241,7 @@ if (document.body.dataset.page === 'dashboard') {
 
   const career = document.getElementById('career__container');
 
-  fetch('http://localhost:3000/career')
+  fetch('/career')
     .then((response) => response.json())
     .then((data) => {
       data.forEach((item) => {
@@ -280,7 +282,13 @@ if (document.body.dataset.page === 'dashboard') {
           const newCompany = prompt('Enter the updated company:');
           const newYear = prompt('Enter the updated year:');
 
-          if (newPosition && newCompany && newYear) {
+          if (
+            newPosition &&
+            newCompany &&
+            newYear &&
+            newYear >= 1901 &&
+            newYear <= 2155
+          ) {
             const newData = {
               position: newPosition,
               company: newCompany,
@@ -289,7 +297,9 @@ if (document.body.dataset.page === 'dashboard') {
 
             handleEdit('/career', item.experience_id, newData);
           } else {
-            alert('Please enter all three values for the item.');
+            alert(
+              'Error while performing update. Please properly fill in all fields.'
+            );
           }
         });
         buttonDiv.appendChild(editButton);
@@ -307,7 +317,7 @@ if (document.body.dataset.page === 'dashboard') {
       data[key] = value;
     });
 
-    fetch('http://localhost:3000/career', {
+    fetch('/career', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -335,7 +345,7 @@ if (document.body.dataset.page === 'dashboard') {
   // Handle CRUD functions
 
   function handleDelete(path, id, removedItem) {
-    fetch(`http://localhost:3000${path}/${id}`, {
+    fetch(`${path}/${id}`, {
       method: 'DELETE',
     })
       .then((response) => {
@@ -351,7 +361,7 @@ if (document.body.dataset.page === 'dashboard') {
   }
 
   function handleEdit(path, id, updatedItem) {
-    fetch(`http://localhost:3000${path}/${id}`, {
+    fetch(`${path}/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

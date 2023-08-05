@@ -2,21 +2,26 @@ const app = require('./server.js');
 const session = require('express-session');
 const cors = require('cors');
 const crypto = require('crypto');
+app.use(cors());
 
 const generateKey = () => {
   return crypto.randomBytes(64).toString('hex');
 };
 
 const secretKey = generateKey();
+// console.log(secretKey);
 
-app.use(cors());
+app.set('trust proxy', 1);
 app.use(
   session({
-    secret: secretKey,
+    secret: process.env.SECRET_KEY || secretKey,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
+    proxy: true,
     cookie: {
-      maxAge: 24 * 60 * 60 * 1000,
+      secure: true,
+      maxAge: 1000 * 60 * 60 * 48,
+      sameSite: 'none',
     },
   })
 );
@@ -31,7 +36,7 @@ app.use(careerRoute);
 app.use(inboxRoute);
 app.use(loginLogoutRoute);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}.`);
 });

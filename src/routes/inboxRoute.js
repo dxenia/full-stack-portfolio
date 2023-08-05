@@ -1,39 +1,43 @@
 const express = require('express');
 const router = express.Router();
-const app = require('../server.js');
 const pool = require('../database.js');
+const Joi = require('joi');
 
-// Contact Form
+router.post('/inbox', async (request, response) => {
+  const schema = Joi.object({
+    name: Joi.string().required(),
+    email: Joi.string().email().required(),
+    number: Joi.number().integer().required(),
+    message: Joi.string().required(),
+  });
 
-app.post('/inbox', async (request, response) => {
   const { name, email, number, message, date } = request.body;
 
   const query =
     'INSERT INTO message (name, email, number, content, date) VALUES (?, ?, ?, ?, NOW())';
   const values = [name, email, number, message, date];
 
-  if (name && email && number && message) {
-    try {
-      const connection = await pool.getConnection();
-      const [results] = await connection.query(query, values);
-      connection.release();
+  const { error } = schema.validate(request.body);
+  if (error) {
+    response.status(400).json({ error: error.details[0].message });
+    return;
+  }
 
-      response
-        .status(201)
-        .json({ message: 'New message successfully submitted!', results });
-    } catch (error) {
-      console.error(error);
-      response.status(500).json({ error: 'Internal Server Error.' });
-    }
-  } else {
+  try {
+    const connection = await pool.getConnection();
+    const [results] = await connection.query(query, values);
+    connection.release();
+
     response
-      .status(400)
-      .json({ error: 'Bad request. All fields must be filled in.' });
+      .status(201)
+      .json({ message: 'New message successfully submitted!', results });
+  } catch (error) {
+    console.error(error);
+    response.status(500).json({ error: 'Internal Server Error.' });
   }
 });
 
-// Admin Inbox: GET and DELETE
-app.get('/inbox', async (request, response) => {
+router.get('/inbox', async (request, response) => {
   try {
     const connection = await pool.getConnection();
     const [results] = await connection.query('SELECT * FROM message');
@@ -46,7 +50,7 @@ app.get('/inbox', async (request, response) => {
   }
 });
 
-app.delete('/inbox/:id', async (request, response) => {
+router.delete('/inbox/:id', async (request, response) => {
   const { id } = request.params;
   const query = 'DELETE FROM message WHERE message_id = ?';
 

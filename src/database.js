@@ -15,6 +15,8 @@ const pool = mysql.createPool({
   connectionLimit: 20,
 });
 
+// const pool = mysql.createPool(process.env.CLEARDB_DATABASE_URL);
+
 (async () => {
   try {
     const connection = await pool.getConnection();

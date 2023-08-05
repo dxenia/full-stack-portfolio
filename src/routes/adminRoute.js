@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const app = require('../server.js');
 const pool = require('../database.js');
 
-app.get('/admin', async (request, response) => {
+router.get('/admin', async (request, response) => {
   try {
     const connection = await pool.getConnection();
     const [results] = await connection.query('SELECT * FROM admin');
