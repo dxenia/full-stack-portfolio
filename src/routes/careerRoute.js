@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../database.js');
+const Joi = require('joi');
 
-// Admin Career: GET, POST, DELETE, PUT
+const schema = Joi.object({
+  position: Joi.string().required(),
+  company: Joi.string().required(),
+  year: Joi.number().integer().min(1901).max(2155).required(),
+});
 
 router.get('/career', async (request, response) => {
   try {
@@ -44,25 +49,25 @@ router.put('/career/:id', async (request, response) => {
   const query =
     'UPDATE experience SET position = ?, company = ?, year = ? WHERE experience_id = ?';
 
-  if (id && position && company && year) {
-    try {
-      const connection = await pool.getConnection();
-      const [results] = await connection.query(query, [
-        position,
-        company,
-        year,
-        id,
-      ]);
-      connection.release();
+  const { error } = schema.validate(request.body);
+  if (error) {
+    response.status(400).json({ error: error.details[0].message });
+    return;
+  }
+  try {
+    const connection = await pool.getConnection();
+    const [results] = await connection.query(query, [
+      position,
+      company,
+      year,
+      id,
+    ]);
+    connection.release();
 
-      response.status(200).json(results);
-    } catch (error) {
-      console.error(error);
-      response.status(500).json({ error: 'Internal Server Error.' });
-    }
-  } else {
+    response.status(200).json(results);
+  } catch (error) {
     console.error(error);
-    response.status(400).json({ error: 'Bad request. Insert valid id.' });
+    response.status(500).json({ error: 'Internal Server Error.' });
   }
 });
 
@@ -71,6 +76,12 @@ router.post('/career', async (request, response) => {
   const query =
     'INSERT INTO experience (position, company, year) VALUES (?, ?, ?)';
   const values = [position, company, year];
+
+  const { error } = schema.validate(request.body);
+  if (error) {
+    response.status(400).json({ error: error.details[0].message });
+    return;
+  }
 
   if (position && company && year) {
     try {

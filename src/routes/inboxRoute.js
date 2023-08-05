@@ -1,37 +1,42 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../database.js');
-
-// Contact Form
+const Joi = require('joi');
 
 router.post('/inbox', async (request, response) => {
+  const schema = Joi.object({
+    name: Joi.string().required(),
+    email: Joi.string().email().required(),
+    number: Joi.number().integer().required(),
+    message: Joi.string().required(),
+  });
+
   const { name, email, number, message, date } = request.body;
 
   const query =
     'INSERT INTO message (name, email, number, content, date) VALUES (?, ?, ?, ?, NOW())';
   const values = [name, email, number, message, date];
 
-  if (name && email && number && message) {
-    try {
-      const connection = await pool.getConnection();
-      const [results] = await connection.query(query, values);
-      connection.release();
+  const { error } = schema.validate(request.body);
+  if (error) {
+    response.status(400).json({ error: error.details[0].message });
+    return;
+  }
 
-      response
-        .status(201)
-        .json({ message: 'New message successfully submitted!', results });
-    } catch (error) {
-      console.error(error);
-      response.status(500).json({ error: 'Internal Server Error.' });
-    }
-  } else {
+  try {
+    const connection = await pool.getConnection();
+    const [results] = await connection.query(query, values);
+    connection.release();
+
     response
-      .status(400)
-      .json({ error: 'Bad request. All fields must be filled in.' });
+      .status(201)
+      .json({ message: 'New message successfully submitted!', results });
+  } catch (error) {
+    console.error(error);
+    response.status(500).json({ error: 'Internal Server Error.' });
   }
 });
 
-// Admin Inbox: GET and DELETE
 router.get('/inbox', async (request, response) => {
   try {
     const connection = await pool.getConnection();

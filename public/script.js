@@ -87,7 +87,9 @@ if (document.body.dataset.page === 'index') {
         })
         .catch((error) => {
           console.error(error);
-          alert('Error while submitting message.');
+          alert(
+            'Error while submitting message. Make sure all fields are properly filled in.'
+          );
         });
       form.reset();
     });
@@ -280,7 +282,13 @@ if (document.body.dataset.page === 'dashboard') {
           const newCompany = prompt('Enter the updated company:');
           const newYear = prompt('Enter the updated year:');
 
-          if (newPosition && newCompany && newYear) {
+          if (
+            newPosition &&
+            newCompany &&
+            newYear &&
+            newYear >= 1901 &&
+            newYear <= 2155
+          ) {
             const newData = {
               position: newPosition,
               company: newCompany,
@@ -289,7 +297,9 @@ if (document.body.dataset.page === 'dashboard') {
 
             handleEdit('/career', item.experience_id, newData);
           } else {
-            alert('Please enter all three values for the item.');
+            alert(
+              'Error while performing update. Please properly fill in all fields.'
+            );
           }
         });
         buttonDiv.appendChild(editButton);

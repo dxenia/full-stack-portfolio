@@ -7,15 +7,15 @@ dotenv.config({ path: dotenvPath });
 
 const mysql = require('mysql2/promise');
 
-// const pool = mysql.createPool({
-//   host: process.env.MYSQL_HOST,
-//   user: process.env.MYSQL_USER,
-//   password: process.env.MYSQL_PASSWORD,
-//   database: process.env.MYSQL_DATABASE,
-//   connectionLimit: 20,
-// });
+const pool = mysql.createPool({
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
+  connectionLimit: 20,
+});
 
-const pool = mysql.createPool(process.env.CLEARDB_DATABASE_URL);
+// const pool = mysql.createPool(process.env.CLEARDB_DATABASE_URL);
 
 (async () => {
   try {

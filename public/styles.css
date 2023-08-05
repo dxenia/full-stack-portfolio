@@ -574,8 +574,8 @@ ul .home__info-description {
 }
 
 .projects__img:hover {
-  transition: ease-in-out 0.3s;
-  box-shadow: var(--medium-color) 0.5rem 0.5rem 2rem;
+  transition: ease-in-out 0.5s;
+  box-shadow: 0 0 3rem 0.5rem var(--highlight-color);
 }
 
 .projects__subtitle {
